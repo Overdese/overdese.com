@@ -1,0 +1,4 @@
+Markdown==2.6.2
+bleach==1.4.2
+html5lib==0.9999999
+six==1.10.0
