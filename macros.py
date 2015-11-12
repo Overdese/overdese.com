@@ -21,14 +21,14 @@ def fix_url(path):
 
 
 def truncate_str(text_str, length):
-	"""
-	Truncate text string to length
-	"""	
-	if len(text_str) > length:
-		return '%s...' % text_str[:int(length)]
-	else:
-		return text_str
-	
+    """
+    Truncate text string to length
+    """ 
+    if len(text_str) > length:
+        return '%s...' % text_str[:int(length)]
+    else:
+        return text_str
+    
 
 # label features
 
@@ -194,3 +194,20 @@ def hook_preconvert_sitemap():
     fp = open(fname, 'w')
     fp.write(_SITEMAP % "".join(urls))
     fp.close()
+
+# analytics
+
+# google
+
+def google_analytics():
+    return '''
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-40751112-3', 'auto');
+                ga('send', 'pageview');
+            </script>
+            '''
