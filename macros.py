@@ -81,34 +81,19 @@ def make_labels():
                        'count': label_dict[key]})
 
     for label in labels:
-        os.makedirs(os.path.join(output, 'labels', label['name']))
-
-        #print(open(os.path.join('extension', 'labels', 'label.md'), 'r', encoding='utf-8').readlines())
+        os.makedirs(os.path.join(output, 'labels', label['name']))        
 
         page = Page(os.path.join('labels', label['name'], 'index.md'), title=label['name'], count=label['count'],
                     virtual=open(os.path.join('extension', 'labels', 'label.md'), 'r', encoding='utf-8').readlines())
         page.count = label['count']
-        pages.append(page)
-        #print(page.url)
+        pages.append(page)        
 
     page = Page(os.path.join('labels', 'index.md'),
                 virtual=open(os.path.join('extension', 'labels', 'index.md'), 'r', encoding='utf-8').readlines())
     pages.append(page)
 
 
-def hook_preconvert_labels():
-    make_labels()
-
-    # add game to menu
-    for label in [l for l in pages if 'label' in l if l.title == 'how-to']:
-        print('OK')
-        label.keywords = "FUCK!!"
-        print(dir(label.source))
-        label.menu_position = 0
-        # setattr(label, 'menu_position', 0)
-
 # comments
-
 def disqus_comments():
     return '''
     <div id="disqus_thread"></div>
