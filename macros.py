@@ -51,7 +51,6 @@ def get_post_labels(post):
     return lst
 
 
-
 def make_labels():
 
     labels = list()           
@@ -91,6 +90,9 @@ def make_labels():
     page = Page(os.path.join('labels', 'index.md'),
                 virtual=open(os.path.join('extension', 'labels', 'index.md'), 'r', encoding='utf-8').readlines())
     pages.append(page)
+
+def hook_preconvert_labels():
+    make_labels()
 
 
 # comments
@@ -200,12 +202,12 @@ def hook_postconvert_ajax_js():
     
     posts = [p for p in pages if "blog" in p]
     posts.sort(key=lambda p: p.datetime, reverse=True)
-    make_js_posts(posts[:60], 1, 10)
+    make_js_posts(posts[:60], 6, 10)
 
     for label in [l for l in pages if 'label' in l]:        
         posts = [p for p in pages if 'blog' in p if label.title in p.label_list]
         posts.sort(key=lambda p: p.datetime, reverse=True)
-        make_js_posts(posts[:60], 1, 10, label.title)
+        make_js_posts(posts[:60], 6, 10, label.title)
 
 # RSS
 # def hook_postconvert_rss():
