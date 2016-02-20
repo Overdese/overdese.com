@@ -1,0 +1,1 @@
+{"posts": [{"image": "/static/custom/img/no_previw.jpg", "url": "/blog/2014/07-31-java-ubuntu-install/index.html", "datetime": "2014-07-31 14:49", "title": "Установка Java на Ubuntu 14.04"}]}

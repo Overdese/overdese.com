@@ -1,0 +1,31 @@
+.text_on_img {
+    display:inline-block;
+    position:relative;
+}
+
+.text_on_img .img_text {
+    display:block;
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    color:#fff;
+
+    padding:10px;
+    background-color:rgba(0,0,0,.4);
+
+}
+
+.row_top_margin {
+    margin-top: 20px;
+}
+
+.col_margin {
+    margin-left: 15px;
+    margin-right: -15px;
+}
