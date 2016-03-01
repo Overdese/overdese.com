@@ -39,7 +39,7 @@ def truncate_str(text_str, length):
 def hook_preconvert_fix_posts_url():
     for post in pages:
         if not post.url.startswith('/'):
-            post.url = '/%s' % post.url
+            post.url = '/%s' % fix_url(post.url)
 
 # label features
 
@@ -276,7 +276,7 @@ def hook_preconvert_sitemap():
     date = datetime.strftime(datetime.now(), "%Y-%m-%d")
     urls = []
     for p in pages:
-        urls.append(_SITEMAP_URL % (SITE_URL.rstrip("/"), p.url, date))
+        urls.append(_SITEMAP_URL % (SITE_URL.rstrip("/"), fix_url(p.url), date))
     fname = os.path.join(options.project, "output", "sitemap.xml")
     fp = open(fname, 'w')
     fp.write(_SITEMAP % "".join(urls))
