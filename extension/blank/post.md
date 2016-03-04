@@ -1,10 +1,9 @@
-title: Имя
+title: {title}
 blog: true
 template: post.html
-datetime: 2016-01-01 00:00
+datetime: {datetime}
 keywords: 
 description: 
 labels: 
-comments: off
+comments: on
 ---
-
