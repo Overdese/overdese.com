@@ -30,7 +30,7 @@ def new_post(title, thumb=None):
                     src.append('thumb_%s.png' % thumb)
                     dst = list()
                     dst.extend(path_list[:-1])
-                    dst.append('thumb_%s.png' % thumb)
+                    dst.append('thumb.png')
                     copy2(os.path.join(*src), os.path.join(*dst))
         else:
             print('Template file missing')
